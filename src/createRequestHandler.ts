@@ -2,14 +2,14 @@ import {
   Handlers,
   JsonRpcRequest,
   JsonRpcResponse,
-  ResponseCreator,
+  RequestHandler,
 } from './types'
 
 export const createRequestHandler = <T extends { [key: string]: any }>(
   handlers: Handlers<T>,
-): ResponseCreator => {
+): RequestHandler => {
   return {
-    createResponse: async (request: JsonRpcRequest) => {
+    handleRequest: async (request: JsonRpcRequest) => {
       try {
         const result = (await handlers[request.method](
           // eslint-disable-next-line @typescript-eslint/no-unsafe-argument

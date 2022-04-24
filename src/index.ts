@@ -1,5 +1,5 @@
 export * from './types'
 export {createBasicJsonRpcClient} from './createBasicJsonRpcClient'
 export {createJsonRpcClient} from './createJsonRpcClient'
-export * from './createRequestHandler'
-export * from './createJsonRpcRequest'
+export {createRequestHandler} from './createRequestHandler'
+export {createJsonRpcRequest} from './createJsonRpcRequest'

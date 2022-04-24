@@ -26,12 +26,12 @@ const emitter = new EventEmitter()
 
 emitter.on('request', (request: JsonRpcRequest) => {
   void (async () => {
-    const response = await requestHandler.createResponse(request)
+    const response = await requestHandler.handleRequest(request)
     emitter.emit('response', response)
   })()
 })
 
-const workerSender = createEventSender(emitter)
+const eventSender = createEventSender(emitter)
 
 const ErrorText = 'Error!'
 
@@ -39,7 +39,7 @@ function delay<T>(value: T, ms: number) {
   return new Promise<T>((resolve) => setTimeout(() => resolve(value), ms))
 }
 
-const client = createJsonRpcClient<TestApi>(workerSender)
+const client = createJsonRpcClient<TestApi>(eventSender)
 
 it('Client requests', async () => {
   const results = await Promise.all([

@@ -25,8 +25,8 @@ export interface RequestSender {
   sendRequest: (request: JsonRpcRequest) => Promise<any>
 }
 
-export interface ResponseCreator {
-  createResponse: (request: JsonRpcRequest) => Promise<JsonRpcResponse>
+export interface RequestHandler {
+  handleRequest: (request: JsonRpcRequest) => Promise<JsonRpcResponse>
 }
 
 export type Promisify<T> = T extends Func<infer A, infer R>
