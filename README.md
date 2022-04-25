@@ -1,14 +1,5 @@
 # typed-json-rpc
 
-[![npm package][npm-img]][npm-url]
-[![Build Status][build-img]][build-url]
-[![Downloads][downloads-img]][downloads-url]
-[![Issues][issues-img]][issues-url]
-[![Code Coverage][codecov-img]][codecov-url]
-[![Commitizen Friendly][commitizen-img]][commitizen-url]
-[![Semantic Release][semantic-release-img]][semantic-release-url]
-
-
 >Simple, strongly typed and ergonomic way to do async communications (events, workers, http requests) with json-rpc 
 
 ## Install
