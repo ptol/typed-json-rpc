@@ -1,12 +1,5 @@
-import { JsonRpcRequest, createRequestHandler } from 'typed-json-rpc'
-import { Api } from '../api'
-
-const requestHandler = createRequestHandler<Api>({
-  increase: (x) => {
-    return x + 1
-  },
-  sum: (x, y) => x + y,
-})
+import { JsonRpcRequest } from "typed-json-rpc";
+import { requestHandler } from "../api";
 
 self.addEventListener(
   'message',
