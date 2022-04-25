@@ -1,6 +1,6 @@
 # typed-json-rpc
 
->Simple, strongly typed and ergonomic way to do async communications (events, workers, http requests) with json-rpc 
+>Simple, statically typed and ergonomic way to do async communications (events, workers, http requests) with json-rpc 
 
 ## Install
 

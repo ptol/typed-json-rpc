@@ -1,7 +1,7 @@
 {
   "name": "typed-json-rpc",
   "version": "1.0.2",
-  "description": "Simple, strongly typed and ergonomic way to do async communications (events, workers, http requests) with json-rpc",
+  "description": "Simple, statically typed and ergonomic way to do async communications (events, workers, http requests) with json-rpc",
   "main": "./lib/src/index.js",
   "files": [
     "lib/**/*"
