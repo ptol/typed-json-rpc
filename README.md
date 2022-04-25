@@ -1,7 +1,7 @@
 # typed-json-rpc
 
 
->Simple, strongly typed and ergonomic way to do any async communication (events, workers, http requests) with json-rpc 
+>Simple, strongly typed and ergonomic way to do async communications (events, workers, http requests) with json-rpc 
 
 ## Install
 
@@ -18,7 +18,7 @@ export interface Api {
 }
 ```
 
-## Create your API request handler
+## Create your API implementation as request handler
 
 ```typescript
 const requestHandler = createRequestHandler<Api>({
@@ -31,7 +31,8 @@ const requestHandler = createRequestHandler<Api>({
 
 ## Create a client
 ```typescript
-const client = createJsonRpcClient<TestApi>(sender)
+const sender = createHttpSender()
+const client = createJsonRpcClient<Api>(sender)
 ```
 
 ## And call your API
@@ -39,4 +40,38 @@ const client = createJsonRpcClient<TestApi>(sender)
 const x = await client.increase(100)
 const y = await client.sum(1,2)
 ```
+
+> All this code can be used for any type of async communication. The difference is how you send your requests and responses.
+ 
+## Http sender example
+```typescript
+export const createHttpSender = (url: string): RequestSender => ({
+  sendRequest(request: JsonRpcRequest) {
+    return axios
+      .post<JsonRpcResponse, AxiosResponse<JsonRpcResponse>>(
+        url,
+        request,
+      ).then((x) =>
+        'error' in x.data ? Promise.reject(x.data.error) : x.data.result,
+      )
+  },
+})
+```
+
+## Express responses
+
+```typescript
+app.post('/', async (req, res) => {
+  const response = await requestHandler.handleRequest(req.body)
+  return res.status(200).json(response)
+})
+
+```
+
+## [Full http example](https://github.com/ptol/typed-json-rpc/examples/src/http)
+
+## Worker and EventEmitter examples
+
+* [Worker example](https://github.com/ptol/typed-json-rpc/examples/src/worker)
+* [EventEmitter example](https://github.com/ptol/typed-json-rpc/examples/src/events)
 
