@@ -68,10 +68,10 @@ app.post('/', async (req, res) => {
 
 ```
 
-## [Full http example](https://github.com/ptol/typed-json-rpc/examples/src/http)
+## [Full http example](https://github.com/ptol/typed-json-rpc/tree/main/examples/src/http)
 
 ## Worker and EventEmitter examples
 
-* [Worker example](https://github.com/ptol/typed-json-rpc/examples/src/worker)
-* [EventEmitter example](https://github.com/ptol/typed-json-rpc/examples/src/events)
+* [Worker example](https://github.com/ptol/typed-json-rpc/tree/main/examples/src/worker)
+* [EventEmitter example](https://github.com/ptol/typed-json-rpc/tree/main/examples/src/events)
 
