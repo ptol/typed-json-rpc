@@ -1,0 +1,23 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "http-server": "node ./out/http/httpServer.js",
+    "http-call": "node ./out/http/httpCall.js",
+    "worker-call": "node ./out/worker/workerCall.js",
+    "event-call": "node ./out/events/eventCall.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "4.6.3",
+    "@types/express": "4.17.13",
+    "axios": "0.26.1",
+    "express": "4.17.3",
+    "web-worker": "1.2.0",
+    "typed-json-rpc": "1.0.2"
+  }
+}
