@@ -40,3 +40,7 @@ export type Handler<T extends Func> = (
 export type Handlers<T extends Record<string, Func>> = {
   [key in keyof T]: Handler<T[key]>
 }
+
+export type JsonRpcClient<F extends { [key in string]: Func }> = {
+  [key in keyof F]: Promisify<F[key]>
+}
